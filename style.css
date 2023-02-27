@@ -1,0 +1,21 @@
+* {
+    padding: 0;
+    margin: 0;
+     /* keep size as content is added */
+    box-sizing: border-box;  
+}  
+
+body {
+    /* vh = viewport height */
+    height: 100vh;
+   background-color: plum; 
+   display: flex;
+}
+/* position of card front and back face absolute & relative to memory-game*/
+/* flex wrap */
+.memory-game {
+
+}
+/** 3d flip card with transform: rotate-Y(180deg)*/
+/** add to parent  container - perspective 1000px */
+/* * add to  memory card  transfor-style- preserve 3d */
