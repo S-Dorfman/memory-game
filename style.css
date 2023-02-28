@@ -12,10 +12,51 @@ body {
    display: flex;
 }
 /* position of card front and back face absolute & relative to memory-game*/
-/* flex wrap */
+/* flex wrap for game board*/
+/* 3d flip card with transform: rotate-Y(180deg)*/
+/* add to parent  container - perspective 1000px */
+/* add to  memory card  transform-style- preserve 3d */
 .memory-game {
-
+    width: 600px;
+    height: 600px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    /* perspective to add 3d effect */
+    perspective: 1000px;
 }
-/** 3d flip card with transform: rotate-Y(180deg)*/
-/** add to parent  container - perspective 1000px */
-/* * add to  memory card  transfor-style- preserve 3d */
+
+.memory-card {
+    width: 150px;
+    height: 150px;
+    margin: 5px;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+  }
+.memory-card:hover {
+    cursor: pointer;
+  }
+.memory-card:active {
+    transform: scale(0.97);
+    transition: .2s;
+}
+.memory-card.flip {
+    transform:rotateY(180deg);
+}
+
+
+  .front-face,
+.back-face {
+  width: 100%;
+  height: 100%;
+  /* padding: 20px; */
+  position: absolute;
+  border-radius: 5px;
+  backface-visibility: hidden;
+}
+.front-face {
+    transform: rotateY(180deg);
+}
+
