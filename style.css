@@ -8,7 +8,7 @@
 body {
     /* vh = viewport height */
     height: 100vh;
-   background-color: plum; 
+   background-color: rgb(180, 79, 180); 
    display: flex;
 }
 /* position of card front and back face absolute & relative to memory-game*/

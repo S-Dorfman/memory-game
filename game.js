@@ -1,9 +1,14 @@
-console.log('Memory Game');
 
-// *shuffle cards
+//cards array 
+const cards = [
+    
+]
 
 //* flip card function
 
-//* chack match function
+
+//* check match function
 //create dataset for matching cards
+
+
 //* track moves and time?
