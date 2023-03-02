@@ -13,7 +13,6 @@
 //each time player chooses 2 cards - 2 options match/not a match
 //if cards match - keep facing up 
 //if cards are not match- flip back over 
-
 //*preventing bugs in game
 //lockBoard to prevent from flipping over > 2 cards
 //if (this === firstCard) return;  - to prevent double click creating match 
@@ -21,10 +20,22 @@
 
 //cardIsFlipped function to manage flipped state 
 const cards = document.querySelectorAll('.memory-card');
+const timeLeft = document.querySelector('#time-left')
+// const score = document.querySelector('#score')
+const playGame = document.querySelector('#start-btn')
+//display result
+// const resultDisplay = document.createElement('h3')
+// const gameGrid = document.getElementById('game')
+// gameGrid.append(resultDisplay)
 
+//game rounds
 let hasFlippedCard = false;
 let lockBoard = false;        
 let firstCard, secondCard; 
+
+//timer
+let countDownTimerId = setInterval(countDown, 1000)
+let currentTime = 30 
 
 function flipCard() {
     // console.log('this', this);
@@ -95,16 +106,43 @@ function resetBoard() {
         let randomPos = Math.floor(Math.random() * 8);
         card.style.order = randomPos;
     })
+    currentTime = 30;
 })(); 
 
 
 cards.forEach(card => card.addEventListener('click', flipCard))
 
+//* track time, find all matches in time = win otherwise lose 
+
+function countDown() {
+    currentTime --
+    timeLeft.textContent = currentTime;
+
+    if (currentTime === 0 && checkFlippedCards(cards)) {
+        console.log("win");
+        // resultDisplay.textContent.appendChild = "You Win!"
+        // alert('Hooray! You Win!')
+      } else {
+        console.log("loss");
+      }
+      if (currentTime === 0) {
+        clearInterval(countDownTimerId);
+        console.log('Game Over!'); 
+        // disableCards()
+      } 
+
+   
+}
+
+function checkFlippedCards(arr) {
+    arr = Array.from(arr);
+//    console.log(arr);
+//    console.log(arr.every((card) => card.classList.contains("flip")));
+    return arr.every((card) => card.classList.contains("flip"));
+  }
 
 
 
-
-
-//* track moves/time  and set high score
+//* score = how fast user finds all matches, & set high score.
 
 //* add cards array, loop over and append to dom
