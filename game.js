@@ -19,18 +19,20 @@
 //resetBoard function to reset cards to null for next round
 
 //cardIsFlipped function to manage flipped state 
+
 const cards = document.querySelectorAll('.memory-card');
 const timeLeft = document.querySelector('#time-left')
-// const score = document.querySelector('#score')
 const playGame = document.querySelector('#start-btn')
 //win/lose text
 const winText = document.getElementById('win-text')
 const loseText = document.getElementById('lose-text')
 
-//display result
-// const resultDisplay = document.createElement('h3')
-// const gameGrid = document.getElementById('game')
-// gameGrid.append(resultDisplay)
+//?appending new Div
+// const newDiv = document.createElement('div')
+//newDiv.textContent = ""
+//document.body.appendChild(newDiv)
+
+
 
 //game rounds
 let hasFlippedCard = false;
@@ -123,7 +125,7 @@ function countDown() {
     currentTime --
     timeLeft.textContent = currentTime;
 
-    if ( checkFlippedCards(cards)) {    //currentTime === 0 &&
+    if (checkFlippedCards(cards)) {    //currentTime === 0 &&
         console.log("win");
         clearInterval(countDownTimerId);
         winText.textContent = "You Win!"
@@ -135,14 +137,14 @@ function countDown() {
         clearInterval(countDownTimerId);    //stop timer from re-running
         console.log('Game Over! You Lost!'); 
         loseText.textContent = "You Lost! Try Again!"
+        //?game over function? 
+        // this.unflipCards()
         // this.cards.removeEventListener('click', flipCard);
-        // disableCards()
-        //?game over function?
       } 
 
    
 }
-
+//check if all cards are matched
 function checkFlippedCards(arr) {
     arr = Array.from(arr);
 //    console.log(arr);
@@ -154,4 +156,4 @@ function checkFlippedCards(arr) {
 
 //* score = how fast user finds all matches, & set high score.
 
-//* add cards array, loop over and append to dom
+//* add cards array, loop over and append to dom - for new theme
