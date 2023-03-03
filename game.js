@@ -23,6 +23,10 @@ const cards = document.querySelectorAll('.memory-card');
 const timeLeft = document.querySelector('#time-left')
 // const score = document.querySelector('#score')
 const playGame = document.querySelector('#start-btn')
+//win/lose text
+const winText = document.getElementById('win-text')
+const loseText = document.getElementById('lose-text')
+
 //display result
 // const resultDisplay = document.createElement('h3')
 // const gameGrid = document.getElementById('game')
@@ -57,7 +61,8 @@ function flipCard() {
         checkForMatch();
     }
 
-
+//if its a match disablecrds() lock cards and keep face up
+//if not a match unflipCards() remove flip class 
     function checkForMatch(){ {
         let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
         if (isMatch) {
@@ -82,7 +87,7 @@ function flipCard() {
         secondCard.removeEventListener('click', flipCard);
         resetBoard();
     }
-    // if cards Not a match unflip cards - remove .flip class
+    // if cards Not a match unflip cards - remove .flip class 
     function unflipCards() {
         lockBoard = true;
 
@@ -94,7 +99,7 @@ function flipCard() {
         }, 1500);
     }
 }
-//resetBoard function,  call after each round
+//resetBoard function,  call after each round, freeze other cards until 2 mismatched cards flip over
 function resetBoard() {
     [hasFlippedCard, lockBoard] = [false, false];
     [firstCard, secondCard] = [null, null];
@@ -118,17 +123,21 @@ function countDown() {
     currentTime --
     timeLeft.textContent = currentTime;
 
-    if (currentTime === 0 && checkFlippedCards(cards)) {
+    if ( checkFlippedCards(cards)) {    //currentTime === 0 &&
         console.log("win");
-        // resultDisplay.textContent.appendChild = "You Win!"
+        clearInterval(countDownTimerId);
+        winText.textContent = "You Win!"
         // alert('Hooray! You Win!')
       } else {
         console.log("loss");
       }
-      if (currentTime === 0) {
-        clearInterval(countDownTimerId);
-        console.log('Game Over!'); 
+      if (currentTime === 0 && !checkFlippedCards(cards)) {
+        clearInterval(countDownTimerId);    //stop timer from re-running
+        console.log('Game Over! You Lost!'); 
+        loseText.textContent = "You Lost! Try Again!"
+        // this.cards.removeEventListener('click', flipCard);
         // disableCards()
+        //?game over function?
       } 
 
    
