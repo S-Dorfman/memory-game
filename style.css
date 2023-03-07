@@ -8,17 +8,19 @@
 body {
     /* vh = viewport height */
     height: 100vh;
-   background-color: rgb(180, 79, 180); 
-   display: flex;
+    display: flex;
+    background-color: rgb(180, 79, 180); 
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
 /* position of card front and back face absolute & relative to memory-game*/
 /* flex wrap for game board*/
 /* 3d flip card with transform: rotate-Y(180deg)*/
 /* add to parent  container - perspective 1000px */
 /* add to  memory card  transform-style- preserve 3d */
 .memory-game {
-    width: 600px;
-    height: 600px;
+    width: 640px;
+    height: 640px;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
@@ -27,8 +29,8 @@ body {
 }
 
 .memory-card {
-    width: 150px;
-    height: 150px;
+    width: calc(25% - 10px);
+    height: calc(33.333% - 10px);
     margin: 5px;
     position: relative;
     transform: scale(1);
@@ -59,4 +61,17 @@ body {
 .front-face {
     transform: rotateY(180deg);
 }
+button {
+    padding: 10px;
+    border: 2px solid green;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    color: green;
+}
+button:hover {
+    cursor: pointer;
+    scale: 1.1;
+}
+
+
 

@@ -22,6 +22,7 @@
 
 const cards = document.querySelectorAll('.memory-card');
 const timeLeft = document.querySelector('#time-left')
+//start game button
 const playGame = document.querySelector('#start-btn')
 //win/lose text
 const winText = document.getElementById('win-text')
@@ -40,8 +41,7 @@ let lockBoard = false;
 let firstCard, secondCard; 
 
 //timer
-let countDownTimerId = setInterval(countDown, 1000)
-let currentTime = 30 
+let currentTime = 100 
 
 function flipCard() {
     // console.log('this', this);
@@ -108,20 +108,54 @@ function resetBoard() {
 }
 
 // () immediately invoked shuffle function
-(function shuffle() {
+function shuffle() {
     cards.forEach(card => {
-        let randomPos = Math.floor(Math.random() * 8);
+        let randomPos = Math.floor(Math.random() * 16);
         card.style.order = randomPos;
     })
-    currentTime = 30;
-})(); 
-
+    // currentTime = 30;
+}; 
 
 cards.forEach(card => card.addEventListener('click', flipCard))
 
 //* track time, find all matches in time = win otherwise lose 
+// ?trying out new timing function-remove?
+// function gameOver() {
+//     cancelInterval(timeLeft)
+// }
+// function updateTimer() {
+//     currentTime = currentTime --
+//     if (currentTime >= 0) {
+//         console.log(currentTime);
+//         timeLeft.innerHTML(currentTime)
+//     }
+//     else {
+//         gameOver()
+//     }
+// }
+
+
+let countDownTimerId
+function startTimer() {
+    shuffle();
+    //?flip cards back over
+    // cards.classList.remove('flip');
+    // unflipCards()
+    if(!countDownTimerId) {
+        countDownTimerId = setInterval(countDown, 1000)
+    }
+}
+
+// const startBtn = document.getElementById('start-btn')
+
+// startBtn.addEventListener("click", reload);
+// function reload() {
+//   window.location.reload();
+// }
 
 function countDown() {
+    // currentTime = setInterval(updateTimer, 1000)
+    // updateTimer()
     currentTime --
     timeLeft.textContent = currentTime;
 
@@ -137,9 +171,9 @@ function countDown() {
         clearInterval(countDownTimerId);    //stop timer from re-running
         console.log('Game Over! You Lost!'); 
         loseText.textContent = "You Lost! Try Again!"
-        //?game over function? 
+        //game over function? 
         // this.unflipCards()
-        // this.cards.removeEventListener('click', flipCard);
+        cards.forEach(card => card.removeEventListener('click', flipCard))
       } 
 
    

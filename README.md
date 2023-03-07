@@ -1,7 +1,13 @@
 #memory game
+##description
+
 ##flip card function
 ###match card function 
 ####timing function
+
+link to live game
+[game link]
+https://s-dorfman.github.io/memory-game/
 
 resources 
 1. https://marina-ferreira.github.io/tutorials/js/memory-game/

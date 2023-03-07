@@ -10,19 +10,9 @@
 </head>
 <body>
     <h1>Memory Game</h1>
-    <!-- Sidebar -->
-    <aside>
-        <div class="game-controls">
-        <h2>Time Left:</h2>
-        <h2 id="time-left">30</h2>
-        <h3 id="win-text"></h3>
-        <h3 id="lose-text"></h3>
-        <button onclick="window.location.reload()" id="start-btn">Play Game</button>
-    </div>
-    </aside>
-   
     <!-- memory game section -->
-    <section class="memory-game"></section>
+    <section>
+        <div class="memory-game"> 
     <!-- Memory card divs with front face and back face-->
     <!-- Add data attribute to match cards -->
     <!-- match 1 -->
@@ -62,8 +52,55 @@
         <img class="back-face" src="images/png-card-back.png" alt="Memory Card">
       </div>
       <!-- match 5 -->
+      <div class="memory-card" data-framework="yellowCharacter">
+        <img class="front-face" src="images/6purble.jpeg" alt="Yellow character">
+        <img class="back-face" src="images/png-card-back.png" alt="Memory Card">
+      </div>
+    <div class="memory-card" data-framework="yellowCharacter">
+        <img class="front-face" src="images/6purble.jpeg" alt="Yellow character">
+        <img class="back-face" src="images/png-card-back.png" alt="Memory Card">
+      </div>
       <!-- match 6 -->
+      <div class="memory-card" data-framework="greenCharacter">
+        <img class="front-face" src="images/7purble.jpeg" alt="Green character">
+        <img class="back-face" src="images/png-card-back.png" alt="Memory Card">
+      </div>
+    <div class="memory-card" data-framework="greenCharacter">
+        <img class="front-face" src="images/7purble.jpeg" alt="Green character">
+        <img class="back-face" src="images/png-card-back.png" alt="Memory Card">
+      </div>
       <!-- match 7 -->
+      <div class="memory-card" data-framework="blueCharacter">
+        <img class="front-face" src="images/8purble.jpeg" alt="Blue character">
+        <img class="back-face" src="images/png-card-back.png" alt="Memory Card">
+      </div>
+    <div class="memory-card" data-framework="blueCharacter">
+        <img class="front-face" src="images/8purble.jpeg" alt="Blue character">
+        <img class="back-face" src="images/png-card-back.png" alt="Memory Card">
+      </div>
       <!-- match 8 --> 
+      <div class="memory-card" data-framework="professorCharacter">
+        <img class="front-face" src="images/9purble.jpeg" alt="Professor character">
+        <img class="back-face" src="images/png-card-back.png" alt="Memory Card">
+      </div>
+      <div class="memory-card" data-framework="professorCharacter">
+        <img class="front-face" src="images/9purble.jpeg" alt="Professor character">
+        <img class="back-face" src="images/png-card-back.png" alt="Memory Card">
+      </div>
+    </div>
+    </section>
+     <!-- Sidebar -->
+     <aside>
+        <div class="game-controls">
+        <h2>Time Left:</h2>
+        <h2 id="time-left">100</h2>
+        <h3 id="win-text"></h3>
+        <h3 id="lose-text"></h3>
+
+        <button onclick="startTimer()" id="start-btn">Play Game</button>
+        <h4>Game Instructions: Try to find all the matches before the time runs out!</h4>
+        
+    </div>
+    </aside>
 </body>
 </html>
