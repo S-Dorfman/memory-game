@@ -1,8 +1,4 @@
 
-// //cards array 
-// const cards = [
-
-// ]
 
 //* flip card function
 //class flip added to memory-card elements with  querySelectorAll. 
@@ -28,11 +24,10 @@ const playGame = document.querySelector('#start-btn')
 const winText = document.getElementById('win-text')
 const loseText = document.getElementById('lose-text')
 
-//?appending new Div
+//appending new Div
 // const newDiv = document.createElement('div')
 //newDiv.textContent = ""
 //document.body.appendChild(newDiv)
-
 
 
 //game rounds
@@ -76,7 +71,6 @@ function flipCard() {
         }    
     }
 
-
     // console.log('first card, second card', firstCard, secondCard);
     // console.log(firstCard.dataset.framework);
     // console.log(secondCard.dataset.framework);
@@ -119,7 +113,7 @@ function shuffle() {
 cards.forEach(card => card.addEventListener('click', flipCard))
 
 //* track time, find all matches in time = win otherwise lose 
-// ?trying out new timing function-remove?
+// ?trying out new timing function
 // function gameOver() {
 //     cancelInterval(timeLeft)
 // }
@@ -138,7 +132,7 @@ cards.forEach(card => card.addEventListener('click', flipCard))
 let countDownTimerId
 function startTimer() {
     shuffle();
-    //?flip cards back over
+    //flip cards back over
     // cards.classList.remove('flip');
     // unflipCards()
     if(!countDownTimerId) {
@@ -146,9 +140,8 @@ function startTimer() {
     }
 }
 
-// const startBtn = document.getElementById('start-btn')
-
-// startBtn.addEventListener("click", reload);
+//Fix start button so it reloads page: shuffles cards, flips cards back over and restarts timer. 
+// playGame.addEventListener("click", reload);
 // function reload() {
 //   window.location.reload();
 // }
@@ -174,9 +167,7 @@ function countDown() {
         //game over function? 
         // this.unflipCards()
         cards.forEach(card => card.removeEventListener('click', flipCard))
-      } 
-
-   
+      }    
 }
 //check if all cards are matched
 function checkFlippedCards(arr) {
@@ -185,7 +176,6 @@ function checkFlippedCards(arr) {
 //    console.log(arr.every((card) => card.classList.contains("flip")));
     return arr.every((card) => card.classList.contains("flip"));
   }
-
 
 
 //* score = how fast user finds all matches, & set high score.

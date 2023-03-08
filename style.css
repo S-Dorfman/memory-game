@@ -13,6 +13,11 @@ body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+/* .title {
+    align-items: center;
+    color: rgb(130, 223, 130);
+} */
+
 /* position of card front and back face absolute & relative to memory-game*/
 /* flex wrap for game board*/
 /* 3d flip card with transform: rotate-Y(180deg)*/
